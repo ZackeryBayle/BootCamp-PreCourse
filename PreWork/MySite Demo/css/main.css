@@ -7,3 +7,64 @@ body {
 h1, h2, h3 {
     font-family: 'Roboto Slab', sans-serif;
 }
+
+/* footer styles */
+.footer-wrapper {
+    background-color:#11122b;
+    color:#cbcbcb;
+    font-family: "Roboto Slab", sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    padding-top:-10px;
+    margin-top:-4px;
+    margin-bottom: 10px;
+}
+
+.footer-wrapper > .logo img {
+    width: 150px;
+    height: 100%;
+    margin-top:0px;
+}
+
+.footer-wrapper > .footer-phone-hours span {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size:1em;
+    letter-spacing: 2px;
+}
+
+.footer-wrapper > .footer-phone-hours > .hours {
+    font-size:0.8em;
+    color:#cea135;
+}
+
+.footer-wrapper > .links-wrapper {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+.footer-wrapper > .social-icon-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+
+}
+.footer-wrapper > .social-icon-wrapper a {
+    font-size:1.5em;
+    color:#cbcbcb;
+    transition: 0.5s;
+}
+.footer-wrapper > .social-icon-wrapper a:hover {
+    color:#cea135;
+}
+.footer-wrapper > .copyright-wrapper {
+    margin-bottom:56px;
+    padding-bottom: 20px;
+    font-size:1.2em;
+    color:#858585;
+}

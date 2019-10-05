@@ -41,6 +41,18 @@
     border: 3px solid #cea135;
 }
 
+/* Code I didnt see covered */
+/* .form input::-webkit-input-placeholder, .form textarea::-webkit-input-placeholder {
+    color: #11122b;
+}
+.form input:focus::-webkit-input-placeholder, .form textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+} */
+
+.form input:focus::-webkit-input-placeholder {
+    color: blue;
+}
+
 .form label {
     font-size: 1.2rem;
     font-weight: 700;

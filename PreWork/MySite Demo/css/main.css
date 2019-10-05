@@ -68,3 +68,68 @@ h1, h2, h3 {
     font-size:1.2em;
     color:#858585;
 }
+
+/* skewed Header Style */
+.skewed-header {
+    position: relative;
+    height: 400px;
+    overflow:hidden;
+}
+.skewed-header > .header-bg {
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+    filter:brightness(80%);
+}
+.skewed-header > .skewed-header-wrapper {
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+.skewed-header > .skewed-header-wrapper > .skewed-header-content {
+    width:1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.skewed-header > .skewed-header-wrapper > .skewed-header-content > .heading-wrapper {
+    background-color: #cea135;
+    color:#11122b;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    width:175px;
+    padding:10px;
+    text-align:center;
+}
+
+/* Page Container Styles */
+
+.page-container {
+    display: flex;
+    justify-content: center;
+
+}
+.page-container > .content-wrapper {
+    width:1000px;
+}
+
+.page-container > .content-wrapper > #html5logo {
+    width:200px;
+    margin:25px 10px 10px 0px;
+    float: left;
+    border: 1px solid black;
+}
+
+.page-container > .content-wrapper p {
+    letter-spacing: 1px;
+    line-height: 30px;
+}

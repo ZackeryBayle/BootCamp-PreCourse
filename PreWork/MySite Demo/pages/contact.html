@@ -3,29 +3,149 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap Import -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="main.css">
-    <!-- Page title shown in browser tabs -->
-        <title>ZBsites - Contact</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/e1adbad1cf.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/nav.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/skewed-header.css">
+        <link rel="stylesheet" href="../css/page-container.css">
+        <link rel="stylesheet" href="../css/helpers.css">
+        <link rel="stylesheet" href="../css/contact.css">
+        <link rel="stylesheet" href="../css/form.css">
+
+        <title>ZBsites - Contact Us</title>
     </head>
     <body>
-        
-        <h1>ZBsites</h1>
-        <h5>Powerful Website Development</h5>
-            <!-- Site Nav Bar -->
-            <div id="nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="menu.html">Menu</a>
-                <a href="contact.html">Contact</a>
+        <div class="skewed-header">
+            <div class="header-bg" style="background-image: url('../img/bgcontact.jpg');"></div>
+            <div class="skewed-header-wrapper">
+                <div class="skewed-header-content">
+                    <div class="heading-wrapper">
+                        <h1>Contact Us</h1>
+                    </div>
+                    <div class="links-wrapper">
+                            <div class="nav-link">
+                                <a href="index.html">Home</a>
+                            </div>
+    
+                            <div class="nav-link">
+                                <a href="about.html">About</a>
+                            </div>
+    
+                            <div class="nav-link">
+                                <a href="menu.html">Menu</a>
+                            </div>
+    
+                            <div class="nav-link">
+                                <a href="contact.html">Contact</a>
+                            </div>
+                        </div>                    
+                </div>
             </div>
-            <!-- End Nav Bar -->
+        </div>
 
-        <p>Contact</p>
+        <div class="page-container">
+            <div class="contact-grid-wrapper">
+                <div class="company-metadata-sidebar-wrapper">
+                    <div class="logo">
+                        <img src="../img/zb_sites_2.jpg" alt="logo">
+                    </div>
 
+                    <div class="company-details-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
 
+                        <div class="">
+                            23 Here Drive <br>
+                            Chandler, Arizona, 85225
+                        </div>
+                    </div>
 
+                    <div class="company-details-wrapper">
+                        <i class="fas fa-phone-alt"></i>
 
+                        <div class="">
+                            555 555 5555
+                        </div>
+                    </div>
+
+                    <div class="company-details-wrapper">
+                        <i class="fas fa-clock"></i>
+
+                        <div class="">
+                            10 AM - 6 PM
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="form-group">
+                        <input type="text" id="fullname" placeholder="Your Name">
+                        <label for="fullname">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email">
+                        <label for="fullname">Valid Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder="Message"></textarea>
+                        <label for="Your Message">Message</label>
+                    </div>
+
+                    <div class="centered-btn-wrapper">
+                        <button type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer60"></div>
+
+        <!-- Footer Section -->
+        <div class="footer-wrapper">
+                <div class="logo">
+                    <img src="../img/zb_sites_3.png" alt="Logo">
+                </div>
+                <div class="footer-phone-hours">
+                    <span class="phone">
+                        555 555 5555
+                    </span>
+                    <span class="hours">
+                        10 AM - 6 PM
+                    </span>
+                </div>
+                    <div class="links-wrapper">
+                        <div class="nav-link">
+                            <a href="index.html">Home</a>
+                        </div>
+    
+                        <div class="nav-link">
+                            <a href="about.html">About</a>
+                        </div>
+    
+                        <div class="nav-link">
+                            <a href="menu.html">Menu</a>
+                        </div>
+    
+                        <div class="nav-link">
+                            <a href="contact.html">Contact</a>
+                        </div>
+                    </div>
+    
+                    <div class="social-icon-wrapper">
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+    
+                    <div class="copyright-wrapper">
+                        &copy; 2019 ZBsites &#124; All rights reserved
+                    </div>
+            </div>
     </body>
 </html>

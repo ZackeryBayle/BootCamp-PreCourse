@@ -42,15 +42,11 @@
 }
 
 /* Code I didnt see covered */
-/* .form input::-webkit-input-placeholder, .form textarea::-webkit-input-placeholder {
+.form input::-webkit-input-placeholder, .form textarea::-webkit-input-placeholder {
     color: #11122b;
 }
 .form input:focus::-webkit-input-placeholder, .form textarea:focus::-webkit-input-placeholder {
     color: transparent;
-} */
-
-.form input:focus::-webkit-input-placeholder {
-    color: blue;
 }
 
 .form label {

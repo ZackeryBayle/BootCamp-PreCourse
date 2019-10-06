@@ -12,3 +12,4 @@ app.use(cors({ origin: 'http://localhost:4200'}));
 app.listen(3000, () => console.log("Server Started on Port: 3000"));
 
 app.use("/employee", employeeController);
+

@@ -1,8 +1,7 @@
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
-    background-color: darkgray;
-    background-image: linear-gradient(black, gray);
+    background-color: rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-position:center top;
     width: 100%;
@@ -33,29 +32,49 @@
     align-items: center;
     font-size: 1.5em;
     padding: 6px 20px;
+    font-family: 'Roboto', sans-serif;
 }
-.links-wrapper > .link{
-    color:black;
-    border: 1px solid white;
+.links-wrapper > .link a{
+    color: black;
+    text-decoration:  underline transparent;
+    border: 0.5px solid black transparent;
     border-radius: 3px;
-    background-color: white;
+    padding: 5px 10px;
+    transition: 0.2s;
+}
+.links-wrapper > .link a:hover{
+    color: black;
+    text-decoration:  underline transparent;
+    border: 0.5px solid black;
+    cursor: pointer;
+
+}
+.links-wrapper > .link a:active{
+    border-color: goldenrod;
 }
 .nav-wrapper > .info-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 15px;
+    margin-right: 20px;
+    width: 15%;
+    font-family: 'Roboto Slab', serif;
+    color:#ad7f00;
     
 }
 .nav-wrapper > .info-wrapper > .phone-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    font-size: 1.2em;
 }
+
 .nav-wrapper > .info-wrapper > .hours-wrapper {
     /* display: flex;
     justify-content: center; */
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+    display: flex;
+    justify-content: space-between;
     margin-right: 5px;
+    font-size: 1.1em;
 
 }

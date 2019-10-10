@@ -1,0 +1,28 @@
+body {
+  background-color: #f6f7f3;
+  height: 100vh;
+  height: 100vw;
+}
+.container {
+  font-family: verdana;
+  font-size: 0.8rem;
+}
+.page-wrapper {
+  padding: 21px;
+}
+.page-wrapper .featured {
+  color: #393b63;
+}
+.page-wrapper .featured .subheading a {
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.page-wrapper .page-content {
+  background-color: #393b63;
+  padding: 42px;
+  color: #f6f7f3;
+}
+.page-wrapper .page-content .container {
+  font-family: courier;
+  font-size: 1.2rem;
+}

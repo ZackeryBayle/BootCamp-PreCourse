@@ -1,0 +1,54 @@
+
+// Theme Colors: Flat-awsmColor
+$theme-flat-color-1:#0f0d35;
+$theme-flat-color-2:#f6f7f3;
+$theme-flat-color-3:#393b63;
+$theme-flat-color-4:#393b63;
+$theme-flat-color-5:#f4bb8a;
+
+$off-white: $theme-flat-color-2;
+$featured-color: $theme-flat-color-3;
+
+@mixin heading-feature-styling {
+  $featured-color: DarkRed !default;
+  color: $featured-color;
+}
+
+@mixin section-feature-styling {
+  $featured-color: DarkRed !default;
+  background-color: $featured-color;
+  padding: 42px;
+  color: $off-white;
+}
+
+body {
+  background-color: $off-white;
+  height: 100vh;
+  height: 100vw;
+}
+
+.container {
+  font-family: verdana;
+  font-size: 0.8rem;
+}
+
+.page-wrapper { 
+  padding: 21px;
+
+  .featured {
+    @include heading-feature-styling;
+    .subheading a{
+      font-size:0.8rem;
+      text-decoration:none;
+    }
+  }
+  
+
+  .page-content {
+    @include section-feature-styling;
+    .container {
+      font-family:courier;
+      font-size:1.2rem;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.nav-wrapper {
+    height: 120px;
+    background-color: black;
+    color: #cbcbcb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-bottom: 4px;
+}
+
+.nav-wrapper > .left-column {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.nav-wrapper > .left-column > .logo-wrapper > .banner-img {
+    display: flex;
+    justify-content: center;
+}
+.logo-wrapper>.banner-img img{
+    width: 300px;
+    height: 100%;
+}
+
+.nav-wrapper > .center-column {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
+}
+.nav-wrapper > .center-column {
+    display: flex;
+    justify-content: center;
+}
+.nav-wrapper > .center-column p {
+    display: flex;
+    justify-content: space-between;
+    margin-right:10px;
+    margin-bottom: 30px;
+    color:goldenrod;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+.nav-wrapper > .center-column > .link-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-content: center;
+}
+
+.nav-wrapper > .center-column > .link-list a{
+    display: flex;
+    justify-content: center;
+    text-decoration-line: none;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+}
+.nav-wrapper > .center-column > .link-list a:nth-child(5){
+    color: #555050;
+
+}
+.nav-wrapper > .right-column {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.nav-wrapper > .right-column > .button-wrapper a {
+    color:white;
+    text-decoration: underline transparent;
+    font-size: 1.5em;
+    align-items: center;
+    letter-spacing: 1px;
+    padding-right:10px;
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-radius: 4px;
+    border:2px solid #302d2d;
+    background-color: #302d2d;
+    margin-right: 9px;
+}
+.nav-wrapper > .right-column > .button-wrapper a:nth-child(2) {
+    background-color:black;
+    border-color:black;
+}
+.nav-wrapper > .right-column > .button-wrapper > .btn i {
+    color:rgb(19, 189, 33);
+}

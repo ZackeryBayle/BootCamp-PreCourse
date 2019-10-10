@@ -1,0 +1,107 @@
+body {
+    background-image: linear-gradient(to bottom right,#4e5161,#18191f,#0e0e11 );
+    /* background-color: rgb(28, 28, 32); */
+}
+
+.pageContent-wrapper {
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(28, 28, 32); */
+    background-blend-mode: color #eeeeee;
+    margin-left:-9px;
+    margin-right:-9px;
+}
+.pageContent-wrapper > .left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 100px
+}
+.pageContent-wrapper > .left-column .content {
+    display: flex;
+    flex-direction: column;
+}
+.pageContent-wrapper > .left-column .content p{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    font-size: 2.5em;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 1px;
+    margin-left: 15px;
+}
+.pageContent-wrapper > .left-column .promo {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+.promo button {
+    font-size: 2em; 
+    padding: 20px 15px; 
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.promo button:nth-child(1) {
+    background-color: rgb(57, 158, 57);
+    border:1px solid rgb(57, 158, 57);
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+.promo button:nth-child(2) {
+    background-color: rgb(0, 0, 0);
+    border:1px solid rgb(0, 0, 0);
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.pageContent-wrapper > .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 40px
+}
+
+.pageContent-wrapper > .right-column > .content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pageContent-wrapper > .right-column > .content img {
+    height: 600px;
+    width: 100%;
+}
+.right-column > .content p {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color:white;
+    font-size: 1.2em;
+}
+.right-column > .content span {
+    color:rgb(6, 158, 247);
+}
+.footer-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left:-20px;
+    margin-right:-10px;
+}
+.footer-wrapper > .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+.columns p {
+    font-size: 2em;
+    color:white;
+    border:2px solid gray;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    background-color:rgb(44, 42, 42);
+    letter-spacing: 1.5px;
+    line-height: 1.2em;
+}
+

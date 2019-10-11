@@ -1,0 +1,10 @@
+@media(max-width: 48em) {
+    .style-details, .dos_dont_wrapper {
+        grid-template-columns: 1fr;
+        gap:50px;
+    }
+    .style-details-text {
+        text-align: center;
+    }
+
+}

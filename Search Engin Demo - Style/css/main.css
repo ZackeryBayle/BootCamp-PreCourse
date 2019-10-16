@@ -1,77 +1,49 @@
-
-
 .page-container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-.page-wrapper {
-    display:grid;
-    grid-template-rows: 1fr;
-    align-items:center;
-}
-
-.page-container > .page-wrapper > .img-wrapper{
     display: grid;
-    grid-template-columns: 1fr;
-    justify-self: center;
-    margin-top:200px;
-    
-}
-.page-container > .page-wrapper > .img-wrapper img {
-    width:100px;
-    height:100px;
-    align-self: center;
-}
-
-.page-container > .page-wrapper > .search-wrapper {
-    display: grid;
-    grid-template-rows: 3fr 1fr;
-    gap:10px;
-    margin-top:100px;
-    margin-bottom:75px;
-}
-/* .page-container > .page-wrapper > .search-wrapper > .search{
-    
-} */
-.page-container > .page-wrapper > .search-wrapper > .search input{
-    width:500px;
-    border:1px solid rgb(143, 143, 143);
-    border-radius: 5px;
-    padding-top:20px;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    box-shadow: 5px 10px 18px #888888;
-    font-family: fontawesome;
-    font-weight: 900;
-    
-}
-.page-container > .page-wrapper > .search-wrapper > .label {
-    display: flex;
-    justify-content: flex-end;
-    color:grey;
-    
-}
-
-
-/* This is where my bug starts */
-.page-container > .page-wrapper > .recent-post-wrapper {
-    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
     grid-template-columns: 1fr 1fr 1fr;
-    gap:20px;
-    justify-content: center;
-    align-content: center;
+    margin-top:5em;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.page-container > .page-wrapper > .recent-post-wrapper > .post {
+.page-container > .img-wrapper {
     display: grid;
-    grid-template-columns: repeat( 1, 1fr);
-    padding-top:5px;
-    margin-top:10px;
-    color:rgb(100, 100, 100);
-    font-size: 1.2em;
+    grid-column: 2;
+    grid-row: 1;
+
 }
-.page-container > .page-wrapper > .recent-post-wrapper > .post > .cat {
-    color:grey;
-    font-size: 0.8em;
+.page-container > .img-wrapper img {
+    width: 10.5rem;
+}
+
+.page-container > .search-wrapper {
+    grid-column: 1/-1;
+    grid-row: 2;
+}
+.page-container > .search-wrapper input {
+    width:66vw;
+    height: 11.8rem;
+    padding-left: 0.75em;
+}
+.page-container > .search-wrapper input[type=text] {
+    font-size: 2.5em;
+    font-family: fontawesome;
+    font-weight: 600;
+    color:#585858;
+    box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.1);
+    border: 0px solid transparent;
+    border-radius: 0.5rem;
+}
+.page-container > .search-wrapper input[type=text]:focus {
+    outline: none;
+    box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.page-container > .recent-post-wrapper {
+    grid-column: 1/-1;
+    grid-row: 3;
 }

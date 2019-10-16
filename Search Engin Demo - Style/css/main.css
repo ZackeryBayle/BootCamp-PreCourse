@@ -53,6 +53,8 @@
     
 }
 
+
+/* This is where my bug starts */
 .page-container > .page-wrapper > .recent-post-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

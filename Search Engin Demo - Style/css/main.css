@@ -31,9 +31,9 @@
     margin-top:100px;
     margin-bottom:75px;
 }
-.page-container > .page-wrapper > .search-wrapper > .search{
+/* .page-container > .page-wrapper > .search-wrapper > .search{
     
-}
+} */
 .page-container > .page-wrapper > .search-wrapper > .search input{
     width:500px;
     border:1px solid rgb(143, 143, 143);

@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/e1adbad1cf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/main.css" />
     <title>Smarty Search - Demo</title>
-</head>
+  </head>
 
-
-<body>
-    <img src="./img/ds_circle_logo.png" alt="">
-</body>
-
+  <body>
+    <div class="page-container">
+      <div class="page-wrapper">
+        <div class="img-wrapper">
+          <img src="./img/ds_circle_logo.png" alt="" />
+        </div>
+        <div class="search-wrapper">
+          <div class="search">
+            <form action="/action_page.php">
+              <input
+                type="text"
+                placeholder='&#Xf002 Search DailySmarty'
+                name="search"
+              />
+            </form>
+          </div>
+          <div class="label">Press return to search</div>
+        </div>
+        <div class="post-label"><a href="#">Recent Post</a></div>
+        <div class="recent-post-wrapper">
+          <div class="post">
+              Lorem ipsum dolor sit amet consectetur.
+              <div class="cat">Java Script</div>
+            </div>
+          <div class="post">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            <div class="cat">Java Script</div>
+          </div>
+          <div class="post">
+            Lorem ipsum dolor sit amet consectetur adipisicing.
+            <div class="cat">Java Script</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

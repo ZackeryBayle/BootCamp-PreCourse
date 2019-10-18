@@ -1,13 +1,31 @@
+html {
+    font-family:'Lato', sans-serif;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 .page-container {
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top:5em;
     justify-items: center;
-    align-items: center;
-    height: 100vh;
 }
-
+.page-container-result {
+    margin-top:2em;
+}
+.page-container-homepage {
+    height: 100vh;
+    align-items: center;
+    margin-top:5em;
+}
 .page-container > .img-wrapper {
     display: grid;
     grid-column: 2;
@@ -29,7 +47,7 @@
 }
 .page-container > .search-wrapper input[type=text] {
     font-size: 2.5em;
-    font-family: fontawesome;
+    font-family: "fontawesome", Arial, Helvetica, sans-serif;
     font-weight: 600;
     color:#585858;
     box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.1);
@@ -41,9 +59,65 @@
     box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.3);
 }
 
-
-
+.page-container > .search-wrapper > .label {
+    color: #b3b3b3;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    margin-top:2.3rem;
+    text-align: right;
+}
 .page-container > .recent-post-wrapper {
     grid-column: 1/-1;
     grid-row: 3;
+}
+.page-container > .recent-post-wrapper > .post-label {
+    margin-bottom:3rem;
+}
+.page-container > .recent-post-wrapper > .post-label a {
+    text-decoration: none;
+    color:#2660f3;
+    font-size: 1.4rem;
+}
+
+.page-container > .recent-post-wrapper > .recent-posts {
+    display: grid;
+    width: 66vw;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap:2.5rem;
+}
+.page-container > .recent-post-wrapper > .recent-posts > .post {
+    color:#535353;
+    font-size: 1.4rem;
+}
+.page-container > .recent-post-wrapper > .recent-posts > .post > .cat {
+    color:#999999;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+/* Results Page Styles */
+
+.result-post-wrapper {
+    display: grid;
+    grid-row: 3;
+    grid-column: 1/-1;
+    width:66vw;
+}
+
+.result-post-wrapper > .posts {
+    margin-top:3em;
+    margin-bottom:3em;
+}
+
+.result-post-wrapper > .posts >.category-name {
+    color:#2660f3;
+    text-decoration: none;
+    font-size: 1.4rem;   
+    margin-bottom: 1.5rem;
+}
+.result-post-title a {
+    color:#535353;
+    text-decoration: none;
+    font-size: 1.8rem;
 }

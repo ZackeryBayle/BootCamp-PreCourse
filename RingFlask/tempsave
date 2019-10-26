@@ -1,0 +1,11 @@
+        {
+          'id': 2,
+          'account': str(dev.account_id),
+          'address': str(dev.address),
+          'family': str(dev.family),
+          'devid': str(dev.id),
+          'name': str(dev.name),
+          'timezone': str(dev.timezone),
+          'wifiname': str(dev.wifi_name),
+          'wifirssi': str(dev.wifi_signal_strength)
+        }

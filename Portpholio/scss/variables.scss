@@ -1,0 +1,29 @@
+// As hex codes */
+
+$color-primary-0: #156367;	// Main Primary color */
+$color-primary-1: #8F9393;
+$color-primary-2: #4D8587;
+$color-primary-3: #004548;
+$color-primary-4: #001A1B;
+
+// As RGBa codes */
+
+$rgba-primary-0: rgba( 21, 99,103,1);	// Main Primary color */
+$rgba-primary-1: rgba(143,147,147,1);
+$rgba-primary-2: rgba( 77,133,135,1);
+$rgba-primary-3: rgba(  0, 69, 72,1);
+$rgba-primary-4: rgba(  0, 26, 27,1);
+
+
+// App Fonts */
+$font-family-0: "font-family: 'Roboto', sans-serif"; // Main Content Font */
+$font-family-1: "font-family: 'Roboto Condensed', sans-serif";
+
+
+$media-query:"only screen and (max-width : 400px)";
+
+@mixin flex-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

@@ -1,0 +1,9 @@
+@mixin flex-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.nav-container {
+    @include flex-container;
+}

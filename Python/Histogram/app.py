@@ -15,18 +15,9 @@ histogram = {
 }
 
 
-#google_sales = histogram['g'].get('sales').get('total')
-
-histogram_company = list(histogram)
-histogram_sales = histogram['g'].get('sales')[0]
 
 
-for i in histogram:
-    # print(histogram_company[0])
-    print(histogram_company[0] + ' ' + histogram[i].get('sales')[0] * '$')
+for k, v in histogram.items():
 
-
-
-# print(histogram_sales)
-# print(histogram_company)
-# print(4 * 'w')
+    # print(k + ' ')
+    print(k + ' ' + histogram[k].get('sales')[0] * '▬')

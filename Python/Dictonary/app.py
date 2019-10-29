@@ -6,6 +6,11 @@ players = {
     "of": "Springer",
 }
 
+player_names = list(players.copy().values())
+
+print(player_names)
+
+
 teams = {
     "astros": {
         "ss": "Correa",
@@ -13,11 +18,21 @@ teams = {
         "3b": "Bregman",
         "dh": "Gavis",
         "of": "Springer",
+    },
+    "red sox": {
+        "ss": "Gordd",
+        "2b": "Phali",
+        "3b": "Gregore"
     }
+
 }
 
-teams['red sox'] = {'ss': 'Betts'}
 
-second_base = players['2b']
-# print(teams['astros']['ss'])
-print(teams['red sox'])
+
+# team_groupings = teams.items()
+# print(list(team_groupings)[1][1]['ss'])
+
+# poped = teams.pop('hhh', 'No Team found by that name')
+
+# print(teams)
+# print(poped)

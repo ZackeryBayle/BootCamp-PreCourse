@@ -3,6 +3,11 @@ post = (
     'Intro guid to python',
     'Some kool python content here!'
 )
+
+
+
+
+
 post_list = [
     'Python Basics',
     'Intro guid to python',

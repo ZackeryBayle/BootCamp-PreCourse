@@ -17,6 +17,8 @@ usernames = [
 
 alphabet = 'abdcef'
 
+nums = list(range(1, 101))
+
 # for player in players:
 #     print(player)
 
@@ -43,3 +45,6 @@ alphabet = 'abdcef'
 #         print(f'{username} was found at index {usernames.index(username)}')
 #         break
 #     # print(username)
+
+while len(nums) > 0:
+    print(nums.pop())

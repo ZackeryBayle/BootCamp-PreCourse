@@ -1,0 +1,8 @@
+FizzBuzz Rules:
+
+Takes User Input ( terminal )
+
+Prints 1 thru 100.
+Multiple of 3 print Fizz
+Multiple of 5 print Buzz
+Multiple of 3 & 5 print FizzBuzz

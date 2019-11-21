@@ -1,4 +1,5 @@
 import fnmatch
+from fnmatch import fnmatchcase
 import os
 
 def list_files():
@@ -11,4 +12,20 @@ def list_files():
             print("Yaml files:", file)
         if fnmatch.fnmatch(file, "*.py"):
             print("Python files:", file)
-list_files()
+
+
+
+# list_files()
+
+
+
+players = [
+    "Jose Altuve 2b",
+    "Carlos Correa ss",
+    "Alex Bregman 3b",
+    "Scooter Gennett 2b"
+]
+
+second_base_players = [player for player in players if fnmatchcase(player,"* 2b")]
+
+print("2B players:",second_base_players)

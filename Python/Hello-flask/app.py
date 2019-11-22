@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
@@ -25,6 +25,22 @@ class GuideSchema(ma.Schema):
 
 guide_schema = GuideSchema()
 guides_schema = GuideSchema(many=True)
+
+#End Point to create new guide
+
+@app.route('/guide', methods=['POST'])
+def add_guide():
+    title = request.json['title']
+    content = request.json['content']
+
+    new_guide = Guide(title,content)
+
+    db.session.add(new_guide)
+    db.session.commit()
+
+    guide = Guide.query.get(new_guide.id)
+
+    return guide_schema.jsonify(guide)
 
 
 

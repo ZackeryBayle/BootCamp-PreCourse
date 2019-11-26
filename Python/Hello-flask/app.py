@@ -35,13 +35,54 @@ def add_guide():
 
     new_guide = Guide(title,content)
 
-    db.session.add(new_guide)
+    db.session.add(new_guide) 
     db.session.commit()
 
     guide = Guide.query.get(new_guide.id)
 
+    return guide_schema.jsonify(guide)  #guide no longer used  data or guide.data() !!!!
+
+
+
+# Endpoint to query all guides
+
+@app.route("/guides", methods=['GET'])
+def get_guides():
+    all_guides = Guide.query.all()
+    result = guides_schema.dump(all_guides)
+    return jsonify(result)
+
+#  Endpoint to query single guide
+
+@app.route("/guide/<id>", methods=["GET"])
+def get_guide(id):
+    guide = Guide.query.get(id)
     return guide_schema.jsonify(guide)
 
+
+# Endpoint to update guide
+
+@app.route("/guide/<id>", methods=["PUT"])
+def guide_update(id):
+    guide = Guide.query.get(id)
+    title = request.json['title']
+    content = request.json['content']
+
+    guide.title = title
+    guide.content = content
+
+    db.session.commit()
+    return guide_schema.jsonify(guide)
+
+
+# Endpoint to DELETE guide
+
+@app.route("/guide/<id>", methods=["DELETE"])
+def guide_delete(id):
+    guide = Guide.query.get(id)
+    db.session.delete(guide)
+    db.session.commit()
+    return guide_schema.jsonify(guide)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,8 @@
+# Ignore project files temp
+
+.txt
+.html
+.js
+.py
+.css
+style/

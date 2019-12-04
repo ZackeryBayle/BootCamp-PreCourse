@@ -9,7 +9,7 @@ db.createUser({
         { role: 'readAnyDatabase', db: 'admin' },
         'readWrite'
     ]
-})
+});
 
 
 //Add document
@@ -20,7 +20,7 @@ db.books.insert({
         { "name": "Jon Snow Jr" },
         { "name": "Ghost Writer" },
     ]
-})
+});
 
 //add many documents
 db.books.insertMany([
@@ -46,10 +46,10 @@ db.books.insertMany([
             { "name": "Ghost Writer" }
         ]
     },
-])
+]);
 
 //find single ducument
-db.books.find({name: "Book three"}).pretty()
+db.books.find({name: "Book three"}).pretty();
 
 //find with filter
 db.books.find(
@@ -60,7 +60,7 @@ db.books.find(
         name: 1,
         author: 1
     }
-).pretty()
+).pretty();
 
 
 //
@@ -73,10 +73,10 @@ db.books.find(
         name:1,
         authors: {$slice: 1}
     }
-).pretty()
+).pretty();
 
 //dete document
-db.books.remove({name: "Book One"}, 1)
+db.books.remove({name: "Book One"}, 1);
 
 //
 
@@ -91,7 +91,7 @@ db.books.insert({
             "name": "Ghost Writer", "active": "true"
         }
     ]
-})
+});
 
 db.books.find(
     {
@@ -102,11 +102,52 @@ db.books.find(
         publishDate: 1,
         "authors.name": 1
     }
-).pretty()
+).pretty();
 //
 
 db.books.findOne(
     {
         name: "Blink"
     }
-)
+);
+
+//string query
+db.books.insert(
+    {
+        "name": "Deep Work: Rules for Focused Success in a Distracted World",
+        "publishedDate": new Date(),
+        "authors": [
+            {"name": "Cal Newport"}
+        ]
+    }
+);
+
+//partial string search      /.*STRING HERE.*/i
+db.books.findOne(
+    {
+        name: /.*deep work.*/i
+    }
+);
+
+
+
+//check if field exist
+
+db.books.insert(
+    {
+        "name": "Deep Work: Rules for Focused Success in a Distracted World",
+        "publishedDate": new Date(),
+        "reviews": 100,
+        "authors": [
+            {"name": "Cal Newport"}
+        ]
+    }
+);
+
+db.books.find(
+    {
+        reviews: {
+            $exists: false
+        }
+    }
+).pretty();

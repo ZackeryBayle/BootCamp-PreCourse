@@ -14,12 +14,13 @@ db.createUser({
 
 //Add document
 db.books.insert({
-    "name": "Book five",
+    "name": "userList",
     "PublishDate": "new Date()",
     "authors": [
-        { "name": "Jon Snow Jr" },
-        { "name": "Ghost Writer" },
-    ]
+        { "name": "Zbayle" },
+        { "name": "Host" },
+    ],
+    "permission": "clusterAdmin"
 });
 
 //add many documents
@@ -133,21 +134,43 @@ db.books.findOne(
 
 //check if field exist
 
-db.books.insert(
+db.users.insert(
     {
-        "name": "Deep Work: Rules for Focused Success in a Distracted World",
+        "name": "users",
         "publishedDate": new Date(),
-        "reviews": 100,
+        "perms": "clusterAdmin",
         "authors": [
-            {"name": "Cal Newport"}
+            {"name": "Zbayle"}
         ]
     }
 );
 
-db.books.find(
+db.users.find(
     {
-        reviews: {
-            $exists: false
+        perms: {
+            $exists: true
         }
     }
 ).pretty();
+
+
+
+db.users.find(
+    {
+        perms: {
+            $exists: true
+        }
+    }
+);
+
+db.users.update(
+    {name:users},
+    $set{
+
+        user: {
+            "fname" : "Zack"
+        }
+
+    }
+
+)

@@ -2,12 +2,70 @@
 const fetch = require("node-fetch");
 
 
+// const postsPromise = fetch('https://api.dailysmarty.com/posts');
 
 
-console.log('Starting Fetch Call');
+// console.log('Finish Fetch Call');
 
-const postsPromise = fetch('https://api.dailysmarty.com/posts');
+//console.log(postsPromise);
 
-console.log('Finish Fetch Call');
 
-console.log(postsPromise);
+// postsPromise
+//     .then(data => data.json())
+//     .then(data => {
+//        data.posts.forEach((item) => {
+//            console.log(item.title);
+//            console.log('Link: ' + item.url_for_post);
+//            console.log(item.url_for_post);
+//        });
+//     });
+
+
+
+// Promise all
+
+// const greeting = new Promise((resolve, reject) => {
+//    resolve('Hi there');
+//    reject('Bad Greeting');
+// });
+
+// const updateAccount = new Promise((resolve, reject) => {
+//    resolve('Updating Login');
+//    reject('Error updating account with login');
+// });
+
+// const loginActivities = Promise.all([greeting, updateAccount]);
+
+// loginActivities.then(res => {
+//    res.forEach(activity => {
+//       console.log(activity);
+//    });
+// });
+
+// Async
+
+const login = () => {
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         resolve('User Logged in...');
+      }, 2000);
+   });
+};
+
+const updateAccount = () => {
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         resolve('Updating last login...');
+      }, 2000);
+   });
+};
+
+async function loginActivities() {
+   const returnedLogin = await login();
+   console.log(returnedLogin);
+
+   const returnedupdateAccount = await updateAccount();
+   console.log(returnedupdateAccount);
+};
+
+loginActivities();

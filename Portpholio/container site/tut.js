@@ -110,13 +110,19 @@ const fetch = require("node-fetch");
 
 
 async function queryApis() {
-   const postsPromis = fetch('https://api.dailysmarty.com/posts');
-   const posts = await postsPromis.then(res => res.json());
-   console.log(posts);
+   try {
+      const postsPromis = fetch('https://api.dailysmarty.com/posts');
+      const posts = await postsPromis.then(res => res.json());
+      console.log(posts);
 
-   const reposPromis = fetch('https://api.github.com/users/2toetommy/repos');
-   const repos = await reposPromis.then(res => res.json());
-   console.log(repos);
+      const reposPromis = fetch('https://api.github.com/users/2toetommy/repos');
+      const repos = await reposPromis.then(res => res.json());
+      console.log(repos);
+
+   }catch(err) {
+      console.log(err);
+   }
+
 }
 
 queryApis(); 

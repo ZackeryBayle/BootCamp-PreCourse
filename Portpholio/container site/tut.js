@@ -44,28 +44,79 @@ const fetch = require("node-fetch");
 
 // Async
 
-const login = () => {
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-         resolve('User Logged in...');
-      }, 2000);
-   });
-};
+// const login = () => {
+//    return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//          resolve('User Logged in...');
+//       }, 2000);
+//    });
+// };
 
-const updateAccount = () => {
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-         resolve('Updating last login...');
-      }, 2000);
-   });
-};
+// const updateAccount = () => {
+//    return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//          resolve('Updating last login...');
+//       }, 2000);
+//    });
+// };
 
-async function loginActivities() {
-   const returnedLogin = await login();
-   console.log(returnedLogin);
+// async function loginActivities() {
+//    const returnedLogin = await login();
+//    console.log(returnedLogin);
 
-   const returnedupdateAccount = await updateAccount();
-   console.log(returnedupdateAccount);
-};
+//    const returnedupdateAccount = await updateAccount();
+//    console.log(returnedupdateAccount);
+// }
 
-loginActivities();
+// loginActivities();
+
+
+
+//closure
+
+
+// const login = () => {
+//    return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//          resolve('User Logged in...');
+//       }, 2000);
+//    });
+// };
+
+// const updateAccount = () => {
+//    return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//          resolve('Updating last login...');
+//       }, 2000);
+//    });
+// };
+
+// async function loginActivities(login, updateAccount) {
+//    const returnedLogin = await login;
+//    console.log(returnedLogin);
+
+//    const returnedupdateAccount = await updateAccount;
+//    console.log(returnedupdateAccount);
+// }
+
+// loginActivities(login(), updateAccount());
+
+
+
+
+// API calls
+//https://api.github.com/users/2toetommy/repos
+//https://api.dailysmarty.com/posts
+
+
+async function queryApis() {
+   const postsPromis = fetch('https://api.dailysmarty.com/posts');
+   const posts = await postsPromis.then(res => res.json());
+   console.log(posts);
+
+   const reposPromis = fetch('https://api.github.com/users/2toetommy/repos');
+   const repos = await reposPromis.then(res => res.json());
+   console.log(repos);
+}
+
+queryApis(); 

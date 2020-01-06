@@ -125,4 +125,4 @@ async function queryApis() {
 
 }
 
-queryApis(); 
+queryApis();

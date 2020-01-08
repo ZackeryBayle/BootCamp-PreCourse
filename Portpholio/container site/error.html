@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript Error Managment</title>
+    </head>
+    <body>
+        <div id="error"></div>
+        <div id="msg"></div>
+
+
+    </body>
+
+    <script>
+
+        class DevcampError extends Error {
+            constructor(msg = 'An Error Occurred', ...params) {
+                super(...params);
+                this.msg = msg;
+            }
+        };
+
+
+        function siteComponent(func) {
+            return func();
+        };
+
+        widget = () => {
+            return '<div><h1>JavaScript Error Managment</h1></div>';
+        };
+
+        try{
+            console.log(siteComponent(widgett));
+            document.getElementById("msg").innerHTML = siteComponent(widget);
+        }catch(message) {
+            console.log('error: ', message);
+            document.getElementById("error").innerHTML = 'Error: ' + message;
+            throw new DevcampError('DevcampError', 'Widget error');
+        }
+    
+    </script>
+</html>

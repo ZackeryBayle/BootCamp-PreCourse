@@ -30,11 +30,12 @@
         };
 
         try{
-            console.log(siteComponent(widgett));
+            console.log(siteComponent(widget));
             document.getElementById("msg").innerHTML = siteComponent(widget);
         }catch(message) {
             console.log('error: ', message);
             document.getElementById("error").innerHTML = 'Error: ' + message;
+            alert('JavaScript Error: ' + message, message);
             throw new DevcampError('DevcampError', 'Widget error');
         }
     

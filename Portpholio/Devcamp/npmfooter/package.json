@@ -1,0 +1,26 @@
+{
+  "name": "npmfooter",
+  "version": "0.0.1",
+  "description": "Bottega Devcamp JS Footer ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZackeryBayle/zbayle-devcamp-js-footer.git"
+  },
+  "keywords": [
+    "Bottega",
+    "JSFooter"
+  ],
+  "author": "zbayle <zackery.bayle@gmail.com> (coming soon)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZackeryBayle/zbayle-devcamp-js-footer/issues"
+  },
+  "homepage": "https://github.com/ZackeryBayle/zbayle-devcamp-js-footer#readme",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}

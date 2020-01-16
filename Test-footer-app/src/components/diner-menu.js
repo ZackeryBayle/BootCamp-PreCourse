@@ -11,27 +11,36 @@ import React, { Component } from 'react';
 
 
 
-const shit =[
-    'Beef Stroganoff',
-    'Spaghetti With Basil Tomato Sauce',
-    'Miso-Glazed Salmon'
+const entreeMenu =[ 
+    {name: 'Beef Stroganoff', price: '13.99'},
+    {name: 'Spaghetti With Basil Tomato Sauce', price: '10.99'},
+    {name: 'Miso-Glazed Salmon', price: '18.99'}
 ];
 
 const sides=[
-    'Onion Soup',
-    'Garlic Toast',
-    'Ceaser Salid'
+    {name:'Onion Soup', price: 'Included'},
+    {name:'Garlic Toast', price: 'Included'},
+    {name:'Ceaser Salid', price: 'Included'}
 ];
 
 
-const domId = document.getElementById('entree').innerHTML = `<ul><li>${shit[0]}</li></ul> <ul><li>${shit[1]}</li></ul> <ul><li>${shit[2]}</li></ul>`;
+const domId = document.getElementById('entree').innerHTML = `<ul><li>${entreeMenu[0].name}</li></ul> <ul><li>${entreeMenu[1].name}</li></ul> <ul><li>${entreeMenu[2].name}</li></ul>`;
 
 console.info('Welcome to Bottega Bistro, please select from our Entree Menu:');
+
+
 var e;
-shit.forEach(element => {
-    console.log(element);
-    e = element;
-});
+
+
+
+// entreeMenu.forEach(element => {
+//     console.log(element);
+//     e = element;
+// });
+
+for(var i=0; i < entreeMenu.length; i++) {
+    console.log(entreeMenu[i]);
+}
 
 
 
@@ -41,45 +50,46 @@ shit.forEach(element => {
 //Alert & prompt section (also prints to console NO input)
 
 
-let entreeChoice = prompt(`What entree would you like? 1) ${shit[0]}, 2) ${shit[1]}, 3) ${shit[2]} `);
+let entreeChoice = prompt(`What entree would you like? 1) ${entreeMenu[0].name} - ${entreeMenu[0].price}, 2) ${entreeMenu[1].name} - ${entreeMenu[1].price}, 3) ${entreeMenu[2].name} - ${entreeMenu[2].price} `);
 
 
 
-
+let total;
 
 if (entreeChoice != null) {
-    if (entreeChoice == 1) {
-        alert(`${shit[entreeChoice - 1]}, great choice! It's one of my favorets.`);
-        console.log(`${shit[entreeChoice - 1]}, great choice! It's one of my favorets.`);
-        let sidedish = prompt(`Here are some side dishes that go well with ${shit[entreeChoice - 1]}. 1) ${sides[0]}, 2) ${sides[1]}, 3) ${sides[2]}  `);
+    if (entreeChoice == 1, total =+ `${entreeMenu[entreeChoice - 1].price}`) {
+        alert(`${entreeMenu[entreeChoice - 1].name}, great choice! It's one of my favorets.`);
+        console.log(`${entreeMenu[entreeChoice - 1].name}, great choice! It's one of my favorets.`);
+        let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name} - 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  Price: ${sides[0].price}  `);
 
         if (sidedish != null) {
-            alert(`${sides[sidedish - 1]}, sounds good!`);
-            console.log(`${sides[sidedish - 1]}, sounds good!`);
+            alert(`${sides[sidedish - 1].name}, sounds good!`);
+            console.log(`${sides[sidedish - 1].name}, sounds good! Your total is ${total} + Tax`);
         }else{alert(`You should select a side dish, don't miss out.`)};
 
 
     }else if (entreeChoice == 2) {
-        alert(`${shit[entreeChoice - 1]}, awesome! I love ${shit[entreeChoice - 1]}.`);
-        console.log(`${shit[entreeChoice - 1]}, awesome! I love ${shit[entreeChoice - 1]}.`);
-        let sidedish = prompt(`Here are some side dishes that go well with ${shit[entreeChoice - 1]}. 1) ${sides[0]}, 2) ${sides[1]}, 3) ${sides[2]}  `);
+        alert(`${entreeMenu[entreeChoice - 1].name}, awesome! I love ${entreeMenu[entreeChoice - 1].name}.`);
+        console.log(`${entreeMenu[entreeChoice - 1].name}, awesome! I love ${entreeMenu[entreeChoice - 1].name}.`);
+        let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name}. 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  `);
 
         if (sidedish != null) {
-            alert(`${sides[sidedish - 1]}, sounds good!`);
-            console.log(`${sides[sidedish - 1]}, sounds good!`);
+            alert(`${sides[sidedish - 1].name}, sounds good!`);
+            console.log(`${sides[sidedish - 1].name}, sounds good! Your total is ${total} + Tax`);
         }else{alert(`You should select a side dish, don't miss out.`)};
 
 
     }else{
-        alert(`${shit[entreeChoice - 1]}, the cheifs special. You're gonna love it.`);
-        console.log(`${shit[entreeChoice - 1]}, the cheifs special. You're gonna love it.`);
-        let sidedish = prompt(`Here are some side dishes that go well with ${shit[entreeChoice - 1]}. 1) ${sides[0]}, 2) ${sides[1]}, 3) ${sides[2]}  `);
+        alert(`${entreeMenu[entreeChoice - 1].name}, the cheifs special. You're gonna love it.`);
+        console.log(`${entreeMenu[entreeChoice - 1].name}, the cheifs special. You're gonna love it.`);
+        let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name}. 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  `);
 
         if (sidedish != null) {
-            alert(`${sides[sidedish - 1]}, sounds good!`);
-            console.log(`${sides[sidedish - 1]}, sounds good!`);
+            alert(`${sides[sidedish - 1].name}, sounds good!`);
+            console.log(`${sides[sidedish - 1].name}, sounds good! Your total is ${total} + Tax`);
         }else{alert(`You should select a side dish, don't miss out.`)};
 
     }
 }
 
+//END Section

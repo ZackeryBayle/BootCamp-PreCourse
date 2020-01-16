@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { footer } from 'npmfooter';
+import { Entree } from './diner-menu';
 
 export default class App extends Component {
   render() {
@@ -7,22 +8,11 @@ export default class App extends Component {
       <div className='app'>
 
 
-        <h1>DevCamp React Starter</h1>
-        <h2>React Bootstrap</h2>
+        <h1>Bottega Bistro</h1>
+        <h2>React Dinning application</h2>
 
+        { Entree }
 
-
-
-
-
-
-
-
-
-
-
-
-        { footer('DevCamp') }
       </div>
     );
   }

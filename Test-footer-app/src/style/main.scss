@@ -31,5 +31,15 @@ body {
 #entree {
     display: flex;
     justify-content: center;
+    margin-top: 1.5em;
+    padding-top: 20px;
     
+}
+
+#entree, ul {
+    font-size: 15px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    list-style-type: none;
 }

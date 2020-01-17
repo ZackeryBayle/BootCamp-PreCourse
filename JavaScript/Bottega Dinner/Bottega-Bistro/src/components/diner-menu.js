@@ -23,7 +23,7 @@ const sides=[
 ];
 
 
-const domId = document.getElementById('entree').innerHTML = `<ul><li>${entreeMenu[0].name} - ${entreeMenu[0].price}</li></ul> <ul><li>${entreeMenu[1].name} - ${entreeMenu[1].price}</li></ul> <ul><li>⭐${entreeMenu[2].name} - ${entreeMenu[2].price}</li></ul>`;
+const domId = document.getElementById('entree').innerHTML = `<ul><i id=choice0>✔</i><li>${entreeMenu[0].name} - ${entreeMenu[0].price}</li></ul> <ul><i id=choice1>✔</i><li>${entreeMenu[1].name} - ${entreeMenu[1].price}</li></ul> <ul><i id=choice2>✔</i><li>${entreeMenu[2].name} - ${entreeMenu[2].price}</li></ul>`;
 console.info('Welcome to Bottega Bistro, please select from our Entree Menu:');
 
 
@@ -55,21 +55,40 @@ let entreeChoice = prompt(`What entree would you like? 1) ${entreeMenu[0].name} 
 let total;
 
 if (entreeChoice != null) {
+
+
     if (entreeChoice == 1, total =+ `${entreeMenu[entreeChoice - 1].price}`) {
         alert(`${entreeMenu[entreeChoice - 1].name}, great choice! It's one of my favorets.`);
         console.log(`${entreeMenu[entreeChoice - 1].name}, great choice! It's one of my favorets.`);
+
 
         let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name} - 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  Price: ${sides[0].price}  `);
 
         if (sidedish != null) {
             alert(`${sides[sidedish - 1].name}, sounds good!`);
             console.log(`${sides[sidedish - 1].name}, sounds good! Your total is ${total} + Tax`);
+            console.log(`Thank you for dinning at Bottega Bistro`);
+
+
+            let totalPrice = document.getElementById('total').innerHTML = `
+            <p>Receipt</p><br>
+            <ul>
+            <li>${entreeMenu[entreeChoice - 1].name} | ${entreeMenu[entreeChoice - 1].price}</li>
+            <li>${sides[sidedish - 1].name} | ${sides[sidedish - 1].price}</li>
+            <br>
+            <li>Total | ${entreeMenu[entreeChoice - 1].price} + <i>TAX</i></li>
+            </ul>
+            <i>Thank you for dinning at Bottega Bistro</i>
+            `;
+
         }else{alert(`You should select a side dish, don't miss out.`)};
 
 
     }else if (entreeChoice == 2) {
         alert(`${entreeMenu[entreeChoice - 1].name}, awesome! I love ${entreeMenu[entreeChoice - 1].name}.`);
         console.log(`${entreeMenu[entreeChoice - 1].name}, awesome! I love ${entreeMenu[entreeChoice - 1].name}.`);
+
+
         let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name}. 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  `);
 
         if (sidedish != null) {
@@ -81,6 +100,8 @@ if (entreeChoice != null) {
     }else{
         alert(`${entreeMenu[entreeChoice - 1].name}, the cheifs special. You're gonna love it.`);
         console.log(`${entreeMenu[entreeChoice - 1].name}, the cheifs special. You're gonna love it.`);
+
+
         let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name}. 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  `);
 
         if (sidedish != null) {
@@ -93,5 +114,5 @@ if (entreeChoice != null) {
 
 
 
-
+ 
 //END Section

@@ -22,6 +22,39 @@ body {
 
 .app {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     display: grid;
     justify-items: center;
+}
+
+#entree {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#entree, ul {
+    display: grid;
+    grid-template-columns: 1,1,1;
+}
+
+#entree, li {
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+
+#total {
+    display: flex;
+    justify-content: center;
+    margin-top:5rem;
+    border-top: 1px solid black;
+}
+
+#total, ul {
+    display: grid;
+    grid-template-rows: 1,1,1;
+}
+
+#choice0, #choice1, #choice2 {
+    visibility: hidden;
 }

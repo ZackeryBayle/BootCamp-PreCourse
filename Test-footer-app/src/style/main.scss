@@ -26,7 +26,6 @@ body {
     display: grid;
     justify-items: center;
 }
-.app
 
 #entree {
     display: flex;
@@ -39,7 +38,12 @@ body {
 #entree, ul {
     font-size: 15px;
     display: grid;
-    justify-content: center;
+    //justify-content: center;
     justify-items: center;
+    grid-template-columns: 1, 1 ,1;
     list-style-type: none;
+}
+
+#entree, li {
+    font-weight: normal;
 }

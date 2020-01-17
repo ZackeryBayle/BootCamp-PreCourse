@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
-// var readline = require('linebyline');
-// var moment = require('moment');
+import { text } from 'express';
 
 /**
  * Returns a string element element with a footer and updating year
@@ -24,8 +23,7 @@ const sides=[
 ];
 
 
-const domId = document.getElementById('entree').innerHTML = `<ul><li>${entreeMenu[0].name}</li></ul> <ul><li>${entreeMenu[1].name}</li></ul> <ul><li>${entreeMenu[2].name}</li></ul>`;
-
+const domId = document.getElementById('entree').innerHTML = `<ul><li>${entreeMenu[0].name} - ${entreeMenu[0].price}</li></ul> <ul><li>${entreeMenu[1].name} - ${entreeMenu[1].price}</li></ul> <ul><li>⭐${entreeMenu[2].name} - ${entreeMenu[2].price}</li></ul>`;
 console.info('Welcome to Bottega Bistro, please select from our Entree Menu:');
 
 
@@ -60,6 +58,7 @@ if (entreeChoice != null) {
     if (entreeChoice == 1, total =+ `${entreeMenu[entreeChoice - 1].price}`) {
         alert(`${entreeMenu[entreeChoice - 1].name}, great choice! It's one of my favorets.`);
         console.log(`${entreeMenu[entreeChoice - 1].name}, great choice! It's one of my favorets.`);
+
         let sidedish = prompt(`Here are some side dishes that go well with ${entreeMenu[entreeChoice - 1].name} - 1) ${sides[0].name}, 2) ${sides[1].name}, 3) ${sides[2].name}  Price: ${sides[0].price}  `);
 
         if (sidedish != null) {
@@ -91,5 +90,8 @@ if (entreeChoice != null) {
 
     }
 }
+
+
+
 
 //END Section

@@ -22,7 +22,7 @@ body {
   display: grid;
   justify-items: center;
 }
-.app #entree {
+#entree {
   display: flex;
   justify-content: center;
   margin-top: 1.5em;
@@ -32,7 +32,12 @@ body {
 ul {
   font-size: 15px;
   display: grid;
-  justify-content: center;
   justify-items: center;
+  grid-template-columns: 1, 1, 1;
   list-style-type: none;
+}
+#entree,
+li {
+  font-family: "Font Awesome 5 Free";
+  font-weight: normal;
 }

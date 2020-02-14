@@ -10,5 +10,5 @@ export default class App extends Component {
         <h3>A web Developer</h3>
       </div>
     );
-  }
+  };
 }

@@ -7,7 +7,61 @@
   <body>
     <div class="app-wrapper"></div>
     <div class="app-header"></div>
+    <hr>
+    <div class="widget">
+      <input type="text" id="chat-input">
+      <button id="msgBtn" onclick="sendMessage()">Submit</button>
+      <button onclick="clearMessages()">Clear</button>
+
+      <div class="chat-wrapper"></div>
+    </div>
 
   </body>
   <script src="/bundle.js"></script>
+  <script>
+
+    //Simple Message Post
+    function sendMessage() {
+      const newDiv = document.createElement('div'); //Create new Div
+      newDiv.classList.add('chatMsg'); //Add Class to new Div
+      let chatInput = document.querySelector('#chat-input').value; //grab text input
+      // console.log(chatInput);
+      const newContent = document.createTextNode(chatInput); //Create TextNode for Div
+      newDiv.appendChild(newContent); //Add TextNode to div
+
+      const widget = document.querySelector('.widget');
+      let chatWrapper = document.querySelector('#chat-wrapper');
+      document.querySelector('#chat-input').value = '';
+
+      if (document.querySelectorAll('.chatMsg').length > 0) {
+        chatWrapper = document.querySelectorAll('.chatMsg')[0];
+      }
+
+      widget.insertBefore(newDiv, chatWrapper);
+
+    }
+    //END Message Post
+
+
+    //Message Remove
+    function clearMessages() {
+      const messages = document.querySelectorAll('.chatMsg');
+      messages.forEach(msg => msg.remove());
+    }
+    //END Message Remove
+
+
+    //Hotkeys
+    const hotKeys = (e) => {
+      let windowEvent = window.event ? event : e;
+
+      if (windowEvent.keyCode === 66 && windowEvent.ctrlKey) {
+        const searchBar = document.querySelector('#chat-input');
+        searchBar.focus();
+      }
+    }
+    document.onkeydown = hotKeys;
+    //END Hotkeys
+
+  </script>
 </html>

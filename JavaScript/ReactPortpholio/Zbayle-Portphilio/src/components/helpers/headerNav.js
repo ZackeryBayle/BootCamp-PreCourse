@@ -7,7 +7,7 @@ export default class Header extends Component {
       <div className='nav-wrapper'>
 
         <div className='nav-col-1 col-left'>
-          <button onclick="Body(e)">Show Body</button>
+          <button >Show Body</button>
         </div>
         <div className='nav-col-2 col-center'>
           <button >Show Body</button>

@@ -66,3 +66,21 @@ body {
     background-color: transparent;
     border:none;
 }
+
+.hidden {
+    display: none;
+}
+
+.widget {
+    display: grid;
+    justify-content: center;
+    border:1px solid black;
+    margin-bottom: 150px;
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-bottom: 150px;
+}
+.chatMsg {
+    font-size: 2.0rem;
+    display: grid;
+}

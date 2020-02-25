@@ -28,9 +28,12 @@ body {
 
 .app-header {
     background-image: url("../src/img/light.jpg");
+    background-size:30%;
+    background-position: 0.5% 50%;
+    background-repeat: no-repeat;
     display: flex;
     width: 100%;
-    height: 120px;
+    height: 220px;
     justify-content: space-around;
 }
 
@@ -48,8 +51,8 @@ body {
     grid-template-columns: auto auto auto;
     justify-content: space-around;
 
-
 }
+
 @keyframes nav-animation {
     5% {clip-path: polygon(0 0, 0 0px, 0px 0px, 0px 0);}
   }

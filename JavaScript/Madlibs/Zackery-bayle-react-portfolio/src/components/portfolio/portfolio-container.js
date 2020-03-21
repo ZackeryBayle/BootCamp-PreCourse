@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
 
@@ -9,13 +10,10 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle: "Welcome to my Portfolio",
             isLoading:false,
-            data: [
-                {title: "Quip",type: "jr dev", category: "eCommerce", slug: "quip"},
-                {title: "EventBright", type: "sr dev", category: "Scheduling",slug: "eventbrite"},
-                {title: "Ministry Safe", type: "gen dev", category: "Enterprise", slug: "ministry-safe"}
-            ]
+            data: []
         };
         this.handelFilter = this.handelFilter.bind(this);
+        this.getPortfolioItems = this.getPortfolioItems.bind(this);
     }
 
     handelFilter(filter) {
@@ -26,10 +24,32 @@ export default class PortfolioContainer extends Component {
         })
     }
 
-    portfolioItems() {
+    getPortfolioItems() {
+        const axios = require('axios');
+     
+      // Make a request for a user with a given ID
+      axios.get('https://zackerybayle.devcamp.space/portfolio/portfolio_items')
+        .then(response =>  {
+          // handle success
+          console.log("Responce Data", response);
+          this.setState({
+            data: response.data.portfolio_items
+            });
+        })
+        .catch(error => {
+          // handle error
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+      }
 
+    portfolioItems() {
+        console.log("i got here", this.state.data)
         return this.state.data.map(item => {
-        return <PortfolioItem title={item.title} type={item.type} slug={item.slug}  />;
+            console.log("Item Data", item)
+        return <PortfolioItem key={item.id} title={item.name} url={item.url} type={item.category} slug={item.id}  />;
         });
     }
 
@@ -40,10 +60,15 @@ export default class PortfolioContainer extends Component {
     //     });
     // }
 
+    componentDidMount() {
+        this.getPortfolioItems();
+    }
+
     render() {
         if (this.state.isLoading) {
             return <div>Loading...</div>
         }
+
 
         return (
             <div>

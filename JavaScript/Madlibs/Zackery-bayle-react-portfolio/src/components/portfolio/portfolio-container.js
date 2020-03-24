@@ -46,10 +46,12 @@ export default class PortfolioContainer extends Component {
       }
 
     portfolioItems() {
+        
         console.log("i got here", this.state.data)
         return this.state.data.map(item => {
-            console.log("Item Data", item)
-        return <PortfolioItem key={item.id} title={item.name} url={item.url} type={item.category} slug={item.id}  />;
+            return (
+            <PortfolioItem key={item.id} item={item}  />
+            );
         });
     }
 
@@ -71,11 +73,11 @@ export default class PortfolioContainer extends Component {
 
 
         return (
-            <div>
-                <h2>{this.state.pageTitle}</h2>
-                <button onClick={() => this.handelFilter('eCommerce')}>eCommerce</button>
-                <button onClick={() => this.handelFilter('Scheduling')}>Scheduling</button>
-                <button onClick={() => this.handelFilter('Enterprise')}>Enterprise</button>
+            <div className="portfolio-items-wrapper">
+
+                <button className="btn" onClick={() => this.handelFilter('eCommerce')}>eCommerce</button>
+                <button className="btn" onClick={() => this.handelFilter('Scheduling')}>Scheduling</button>
+                <button className="btn" onClick={() => this.handelFilter('Enterprise')}>Enterprise</button>
 
                 { this.portfolioItems() }
 

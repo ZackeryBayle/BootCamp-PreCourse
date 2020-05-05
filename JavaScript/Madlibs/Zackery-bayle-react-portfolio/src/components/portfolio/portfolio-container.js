@@ -77,6 +77,7 @@ export default class PortfolioContainer extends Component {
                 <button className="btn" onClick={() => this.handelFilter('eCommerce')}>eCommerce</button>
                 <button className="btn" onClick={() => this.handelFilter('Scheduling')}>Scheduling</button>
                 <button className="btn" onClick={() => this.handelFilter('Enterprise')}>Enterprise</button>
+                {/* <button className="btn" onClick={() => this.handelFilter('Enterprise')}>Gaming</button> */}
 
                 {this.portfolioItems()}
 

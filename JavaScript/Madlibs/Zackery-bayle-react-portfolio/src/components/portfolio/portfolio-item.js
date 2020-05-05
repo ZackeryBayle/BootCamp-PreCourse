@@ -17,20 +17,21 @@ export default class PortfolioItem extends Component {
         constructor(props) {
             super(props);
             this.state = {
-                PortfolioItemClass: ""
-            }
+                portfolioItemClass: ""
+            };
         }
 
         //Mouse Over Handler
         handleMouseEnter() {
-            this.setState({PortfolioItemClass: 'image-blur'});
+            this.setState({portfolioItemClass: "image-blur" });
         }
         handleMouseLeave() {
-            this.setState({PortfolioItemClass: ''});
+            this.setState({portfolioItemClass: "" });
         }
 
     render() {
-        const { id, description, thumb_image_url, logo_url, name, category} = this.props.item;
+        const { id, description, thumb_image_url, logo_url } = this.props.item;  
+        // , name, category
 
         return (
             <div className="portfolio-item-wrapper"
@@ -38,7 +39,7 @@ export default class PortfolioItem extends Component {
                 onMouseLeave={() => this.handleMouseLeave()}
             >
                 <div 
-                    className={"portfolio-img-background " + this.state.PortfolioItemClass}
+                    className={"portfolio-img-background " + this.state.portfolioItemClass}
                     style={{
                         backgroundImage:"url(" + thumb_image_url + ")"
                     }}

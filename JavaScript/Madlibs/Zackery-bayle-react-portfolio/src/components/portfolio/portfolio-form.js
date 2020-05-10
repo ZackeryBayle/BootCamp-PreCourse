@@ -4,6 +4,8 @@ import axios from 'axios';
 import DropZoneComponent from "react-dropzone-component";
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 
 // import { response } from 'express';
@@ -21,7 +23,10 @@ export default class PortfolioForm extends Component {
             position: "",
             thumb_image: "",
             banner_img: "",
-            logo: ""
+            logo: "",
+            editMode: false,
+            apiUrl: "https://zackerybayle.devcamp.space/portfolio/portfolio_items",
+            apiAction: "post"
         }
 
 
@@ -34,6 +39,7 @@ export default class PortfolioForm extends Component {
         this.handleThumbDrop = this.handleThumbDrop.bind(this);
         this.handleBannerDrop = this.handleBannerDrop.bind(this);
         this.handleLogoDrop = this.handleLogoDrop.bind(this);
+        this.deleteImage = this.deleteImage.bind(this);
 
 
         this.thumbRef = React.createRef();
@@ -43,6 +49,54 @@ export default class PortfolioForm extends Component {
 
 
     }
+    deleteImage(imageType) {
+        axios.delete(
+            `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state.id}?image_type=${imageType}`,
+            { withCredentials: true }
+        ).then(response => {
+            this.setState({
+                [`${imageType}_url`]: ""
+            });
+        }).catch(error => {
+            console.log("deleteImage error", error);
+        })
+    }
+
+
+    componentDidUpdate() {
+        if (Object.keys(this.props.portfolioToEdit).length > 0) {
+            const {
+                id,
+                name,
+                description,
+                category,
+                position,
+                url,
+                thumb_image_url,
+                banner_image_url,
+                logo_url
+            } = this.props.portfolioToEdit;
+
+            this.props.clearPortfolioToEdit();
+
+            this.setState({
+                id: id,
+                name: name || "",
+                description: description || "",
+                url: url || "",
+                category: category || "eCommerce",
+                position: position || "",
+                editMode: true,
+                apiUrl: `https://zackerybayle.devcamp.space/portfolio/portfolio_items/${id}`,
+                apiAction: "patch",
+                thumb_image_url: thumb_image_url || "",
+                banner_image_url: banner_image_url || "",
+                logo_url: logo_url || ""
+            });
+        }
+    }
+
+
 //Handle Image Drop Section
     handleThumbDrop() {
         return {
@@ -112,12 +166,18 @@ export default class PortfolioForm extends Component {
 
     handleSubmit(event) {
 
-        axios.post(
-            "https://zackerybayle.devcamp.space/portfolio/portfolio_items",
-            this.buildForm(),
-            { withCredentials: true }
-        ).then(response => {
-            this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+        axios({
+            method: this.state.apiAction,
+            url: this.state.apiUrl,
+            data: this.buildForm(),
+            withCredentials: true
+        })
+        .then(response => {
+            if (this.state.editMode) {
+                this.props.handleEditFormSubmission();
+            }else {
+                this.props.handleNewFormSubmission(response.data.portfolio_item);
+            }
 
             this.setState({
                 name: "",
@@ -127,7 +187,10 @@ export default class PortfolioForm extends Component {
                 position: "",
                 thumb_image: "",
                 banner_img: "",
-                logo: ""
+                logo: "",
+                editMode: false,
+                apiUrl: "https://zackerybayle.devcamp.space/portfolio/portfolio_items",
+                apiAction: "post"
             });
 
 
@@ -201,32 +264,78 @@ export default class PortfolioForm extends Component {
                     </div>
 
                     <div className="image-uploaders three-column">
-                        <DropZoneComponent
-                            ref={this.thumbRef}
-                            config={this.componentConfig()}
-                            djsConfig={this.djsConfig()}
-                            eventHandlers={this.handleThumbDrop()}
-                        >
-                            <div className="dz-message">Thumbnail</div>
-                        </DropZoneComponent>
+                        {/* Image conditional hide DZ show img/s if edit mode true */}
+                        { this.state.thumb_image_url && this.state.editMode ?
+                            <div className="portfolio-manager-image-wrapper">
+                                <img src={this.state.thumb_image_url} />
+                                <div className="image-removal-link">
+                                    <a onClick={() => this.deleteImage("thumb_image")}>
+                                        <FontAwesomeIcon icon="eraser" />
+                                    </a>
+                                </div>
+                            </div>
 
-                        <DropZoneComponent
-                            ref={this.bannerRef}
-                            config={this.componentConfig()}
-                            djsConfig={this.djsConfig()}
-                            eventHandlers={this.handleBannerDrop()}
-                        >
-                            <div className="dz-message">Banner</div>
-                        </DropZoneComponent>
+                            // Image conditional show DZ is editMode false
+                            :<DropZoneComponent
+                                ref={this.thumbRef}
+                                config={this.componentConfig()}
+                                djsConfig={this.djsConfig()}
+                                eventHandlers={this.handleThumbDrop()}
+                            >
+                                <div className="dz-message">Thumbnail</div>
+                            </DropZoneComponent>
+                        }
 
-                        <DropZoneComponent
-                            ref={this.logoRef}
-                            config={this.componentConfig()}
-                            djsConfig={this.djsConfig()}
-                            eventHandlers={this.handleLogoDrop()}
-                        >
-                            <div className="dz-message">Logo</div>
-                        </DropZoneComponent>
+
+
+                        {/* Image conditional hide DZ show img/s if edit mode true */}
+                        { this.state.banner_image_url && this.state.editMode ?
+                            <div className="portfolio-manager-image-wrapper">
+                                <img src={this.state.banner_image_url} />
+                                <div className="image-removal-link">
+                                    <a onClick={() => this.deleteImage("banner_image")}>
+                                        <FontAwesomeIcon icon="eraser" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            // Image conditional show DZ is editMode false
+                            :
+
+                            <DropZoneComponent
+                                ref={this.bannerRef}
+                                config={this.componentConfig()}
+                                djsConfig={this.djsConfig()}
+                                eventHandlers={this.handleBannerDrop()}
+                            >
+                                <div className="dz-message">Banner</div>
+                            </DropZoneComponent>
+                        }
+
+
+                        {/* Image conditional hide DZ show img/s if edit mode true */}
+                        { this.state.logo_url && this.state.editMode ?
+                            <div className="portfolio-manager-image-wrapper">
+                                <img src={this.state.logo_url} />
+                                <div className="image-removal-link">
+                                    <a onClick={() => this.deleteImage("logo")}>
+                                        <FontAwesomeIcon icon="eraser" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            // Image conditional show DZ is editMode false
+                            :
+
+                            <DropZoneComponent
+                                ref={this.logoRef}
+                                config={this.componentConfig()}
+                                djsConfig={this.djsConfig()}
+                                eventHandlers={this.handleLogoDrop()}
+                            >
+                                <div className="dz-message">Logo</div>
+                            </DropZoneComponent>
+                        }
                         
                     </div>
 

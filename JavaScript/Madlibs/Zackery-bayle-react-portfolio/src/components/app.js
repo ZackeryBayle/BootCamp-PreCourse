@@ -1,3 +1,4 @@
+//React imports
 import React, { Component } from 'react';
 
 import {
@@ -5,12 +6,18 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+//END
+
+
 import axios from 'axios';
+
+//Font Awesome imports
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faSignOutAlt, faSignInAlt, faEdit, faEraser } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faSignOutAlt, faSignInAlt, faEdit, faEraser,faSpinner } from "@fortawesome/free-solid-svg-icons";
+//END
 
-
+//componant imports
 import NavigationContainer from "./navigation/navigation-container";
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -21,9 +28,10 @@ import PortfolioManager from "./pages/portfolio-manager";
 import PortfolioDetail from './portfolio/portfolio-detail';
 import Auth from './pages/auth';
 import NoMatch from "./pages/no-match";
+//END
 
-
-library.add(faTrash, faSignOutAlt, faSignInAlt, faEdit, faEraser);
+//Font Awesome Library
+library.add(faTrash, faSignOutAlt, faSignInAlt, faEdit, faEraser, faSpinner);
 
 
 export default class App extends Component {

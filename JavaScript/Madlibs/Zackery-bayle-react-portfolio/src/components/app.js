@@ -12,9 +12,8 @@ import {
 import axios from 'axios';
 
 //Font Awesome imports
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faSignOutAlt, faSignInAlt, faEdit, faEraser,faSpinner } from "@fortawesome/free-solid-svg-icons";
+import Icons from "../helpers/icons";
 //END
 
 //componant imports
@@ -28,15 +27,17 @@ import PortfolioManager from "./pages/portfolio-manager";
 import PortfolioDetail from './portfolio/portfolio-detail';
 import Auth from './pages/auth';
 import NoMatch from "./pages/no-match";
+
 //END
 
-//Font Awesome Library
-library.add(faTrash, faSignOutAlt, faSignInAlt, faEdit, faEraser, faSpinner);
+
 
 
 export default class App extends Component {
   constructor(props) {
     super(props);
+
+    Icons();
 
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN"
@@ -132,7 +133,13 @@ export default class App extends Component {
 
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/blog" component={Blog} />
+
+              <Route path="/blog"
+                render={props => (
+                  <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
+                )}
+              />
+
               <Route path="/b/:slug" component={BlogDetail} />
               {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedPages(): null}
               <Route exact path="/portfolio/:slug" component={PortfolioDetail} />

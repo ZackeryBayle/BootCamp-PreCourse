@@ -7,7 +7,8 @@ import {
     faEdit, 
     faEraser,
     faSpinner, 
-    faPlusCircle 
+    faPlusCircle,
+    faPencilAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -19,7 +20,8 @@ const Icons = () => {
         faEdit, 
         faEraser, 
         faSpinner, 
-        faPlusCircle
+        faPlusCircle,
+        faPencilAlt
     );
 
 }

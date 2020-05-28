@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 // import { response } from 'express';
-import { FrontAwesomeIcon, FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FrontAwesomeIcon, FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import RichTextEditor from "../forms/rich-text-editor";
 import DropZoneComponent from "react-dropzone-component";
 import { Redirect } from 'react-router';

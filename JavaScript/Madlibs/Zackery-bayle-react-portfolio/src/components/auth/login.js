@@ -76,6 +76,7 @@ export default class Login extends Component {
                         name="email"
                         placeholder="Your Email"
                         value={this.state.email}
+                        autoComplete="on"
                         onChange={this.handleChange}
                     />
 
@@ -84,6 +85,7 @@ export default class Login extends Component {
                         name="password"
                         placeholder="Your Password"
                         value={this.state.password}
+                        autoComplete="on"
                         onChange={this.handleChange}
                     />
 

@@ -58,7 +58,3 @@ export default class LoginModal extends Component {
       }
 
     }
-
-
-
-}

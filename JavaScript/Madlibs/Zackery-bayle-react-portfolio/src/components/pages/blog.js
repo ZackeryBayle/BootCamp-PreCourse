@@ -81,6 +81,7 @@ class Blog extends Component {
         .get(`https://zackerybayle.devcamp.space/portfolio/portfolio_blogs?page=${this.state.currentPage}`,
         {withCredentials: true}
         ).then(response => {
+            
             console.log("Getting more post..", response.data);
 
             this.setState({
@@ -117,6 +118,7 @@ class Blog extends Component {
                         handleModalClose ={this.handleModalClose}
                     />
 
+                    {blogRecords}
 
                     { this.props.loggedInStatus === "LOGGED_IN" ? (
                         <div className="new-blog-link">
@@ -124,8 +126,6 @@ class Blog extends Component {
                         </div>
                     ) : null}
 
-
-                    {blogRecords}
                 </div>
 
                 {this.state.isLoading ? (

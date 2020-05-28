@@ -4,6 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 
 import BlogForm from "../blog/blog-form";
 import BlogFeaturedImage from "../blog/blog-featured-image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class BlogDetail extends Component {
   constructor(props) {
@@ -17,9 +18,8 @@ export default class BlogDetail extends Component {
 
     this.handleEditClick = this.handleEditClick.bind(this);
     this.handleFeaturedImageDelete = this.handleFeaturedImageDelete.bind(this);
-    this.handleUpdateFormSubmission = this.handleUpdateFormSubmission.bind(
-      this
-    );
+    this.handleUpdateFormSubmission = this.handleUpdateFormSubmission.bind(this);
+
   }
 
   handleUpdateFormSubmission(blog) {
@@ -39,7 +39,9 @@ export default class BlogDetail extends Component {
 
   handleEditClick() {
     console.log("handle edit clicked");
-    this.setState({ editMode: true });
+    if (this.props.loggedInStatus === "LOGGED_IN") {
+      this.setState({ editMode: true });
+    }
   }
 
   getBlogItem() {
@@ -84,7 +86,15 @@ export default class BlogDetail extends Component {
       } else {
         return (
           <div className="content-container">
-            <h1 onClick={this.handleEditClick}>{title}</h1>
+            
+            <h1>{title}
+              <sub onClick={this.handleEditClick}>
+                 {this.state.editMode ? (  
+                  <FontAwesomeIcon icon="eraser" />
+                 ): null}
+
+              </sub>
+            </h1>
 
             <BlogFeaturedImage img={featured_image_url} />
 

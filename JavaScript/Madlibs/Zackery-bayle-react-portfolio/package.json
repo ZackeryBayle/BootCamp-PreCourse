@@ -53,6 +53,7 @@
     "draft-js": "^0.11.5",
     "draftjs-to-html": "^0.9.1",
     "dropzone": "^5.7.0",
+    "dropzone-fix": "^5.7.1",
     "eslint": "^4.2.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.1.0",

@@ -17,8 +17,8 @@ export default class BlogForm extends Component {
             blog_status: "draft",
             content: "",
             featured_image: "",
-            // apiUrl: "https://zackerybayle.devcamp.space/portfolio/portfolio_blogs",
-            // apiAction: "post"
+            apiUrl: "https://zackerybayle.devcamp.space/portfolio/portfolio_blogs",
+            apiAction: "post"
         }
 
 
@@ -43,7 +43,7 @@ export default class BlogForm extends Component {
             { withCredentials: true }
         ).then(response => {
             this.props.handleFeaturedImageDelete();
-            console.log("Resonce from blog inamge delete", response);
+            console.log("Resonce from blog image delete", response);
         }).catch(error => {
             console.log("deleteImage error", error);
         })
@@ -54,7 +54,10 @@ export default class BlogForm extends Component {
             this.setState({
                 id: this.props.blog.id,
                 title: this.props.blog.title,
-                blog_status: this.props.blog.status
+                blog_status: this.props.blog.blog_status,  //Fixed Status mistype
+                content: this.props.blog.content,
+                apiUrl: `https://zackerybayle.devcamp.space/portfolio/portfolio_blogs/${this.props.blog.id}`,
+                apiAction: "patch"
             });
         }
     }
@@ -104,18 +107,17 @@ export default class BlogForm extends Component {
         return formData;
     }
 
-
-
     handleSubmit(event) {
-        axios
-        .post(
-            "https://zackerybayle.devcamp.space/portfolio/portfolio_blogs",
-            this.buildForm(),
-            {withCredentials: true}
-        ).then(
+        axios({
+            method: this.state.apiAction,   //Axios modern method change
+            url: this.state.apiUrl,
+            data: this.buildForm(),
+            withCredentials: true
+        })
+        .then(
             response => {
                 if (this.state.featured_image) {
-                    this.featuredImageRef.current.dropzone.removeAllFiles(); //Error
+                    this.featuredImageRef.current.dropzone.removeAllFiles(); //Error can not read property of dropzone
                 }
                 this.setState({
                     title: "",
@@ -124,18 +126,21 @@ export default class BlogForm extends Component {
                     featured_image: ""
                 });
                 
-                this.props.handleSuccessfulFormSubmission(response.data.portfolio_blog)  //Memory Leak NOT fixes Blog.js Line 41 blogModalIsOpen: false cause unmounting TODO: Fix
+                if (this.props.editMode) {
+                    //Update BLogDetail
+                    this.props.handleUpdateFormSubmission(
+                        response.data.portfolio_blog
+                    );
+                } else {
+                    this.props.handleSuccessfullFormSubmission(
+                        response.data.portfolio_blog
+                    );
+                }
 
             }   
         ).catch(error => {
             console.log("HandleSubmitError", error);
         });
-
-
-
-
-
-        this.props.handleSuccessfulFormSubmission(this.state);
         event.preventDefault();
     }
 
@@ -206,3 +211,8 @@ export default class BlogForm extends Component {
         );
     }
 }
+
+
+//SOURCE  --
+
+

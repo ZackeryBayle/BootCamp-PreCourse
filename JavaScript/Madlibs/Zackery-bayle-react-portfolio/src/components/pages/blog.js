@@ -111,14 +111,11 @@ class Blog extends Component {
 
         return (
             <div className="blog-container">
-                <div className="content-container">
-                    <BlogModal
+                <BlogModal
                         handleSuccessfulNewBlogSubmission={this.handleSuccessfulNewBlogSubmission}
                         modalIsOpen ={this.state.blogModalIsOpen}
                         handleModalClose ={this.handleModalClose}
                     />
-
-                    {blogRecords}
 
                     { this.props.loggedInStatus === "LOGGED_IN" ? (
                         <div className="new-blog-link">
@@ -126,7 +123,11 @@ class Blog extends Component {
                         </div>
                     ) : null}
 
-                </div>
+                    <div className="content-container">
+                        {blogRecords}
+                    </div>
+
+            
 
                 {this.state.isLoading ? (
                     <div className="content-loader">

@@ -196,7 +196,7 @@ export default class BlogForm extends Component {
                             </div>
                     ) : (
                         <DropZoneComponent
-                            featuredImageRef={this.featuredImageRef}
+                            ref={this.featuredImageRef} //WHy ref
                             config={this.componentConfig()}
                             djsConfig={this.djsConfig()}
                             eventHandlers={this.handleFeaturedImageDrop()}

@@ -89,9 +89,9 @@ export default class BlogDetail extends Component {
             
             <h1>{title}
               <sub onClick={this.handleEditClick}>
-                 {this.state.editMode ? (  
-                  <FontAwesomeIcon icon="eraser" />
-                 ): null}
+                 {this.props.loggedInStatus === "LOGGED_IN"  ? (
+                   <FontAwesomeIcon icon="pencil-alt" />
+                  ):null}
 
               </sub>
             </h1>

@@ -1,5 +1,27 @@
 import React from 'react';
+import ContactForm from "../forms/contact-form";
+
+import loginImg from "../../../static/assets/images/auth/login.jpg"
+import ProfilePicture from "../../../static/assets/images/round-white.png";
 
 export default function() {
-    return<div>Contact</div>
+    return(
+        <div className="content-page-wrapper">
+            <div 
+                className="left-column" 
+                style={{
+                    background: "url("+ loginImg + ") no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
+                }} 
+            
+            />
+
+            <div className="right-column">
+                <img src={ProfilePicture} />
+                <ContactForm />
+            </div>
+
+        </div>
+    )
 }

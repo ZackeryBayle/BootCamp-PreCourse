@@ -41,9 +41,6 @@ export default class PortfolioContainer extends Component {
           // handle error
           console.log(error);
         });
-        // .finally(function () {
-        //   // always executed
-        // });
       }
 
     portfolioItems() {
@@ -54,12 +51,6 @@ export default class PortfolioContainer extends Component {
         });
     }
 
-
-    // handelPageTitleUpdate() {
-    //     this.setState({
-    //         pageTitle: "Zackery Bayles Porfolio"
-    //     });
-    // }
 
     componentDidMount() {
         this.getPortfolioItems();

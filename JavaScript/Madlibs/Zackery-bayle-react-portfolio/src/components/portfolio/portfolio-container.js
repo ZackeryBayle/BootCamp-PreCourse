@@ -17,35 +17,40 @@ export default class PortfolioContainer extends Component {
     }
 
     handelFilter(filter) {
-        this.setState({
-            data: this.state.data.filter(item => {
-                return item.category === filter;
-            })
-        })
+        if(filter === "CLEAR_FILTERS") {
+            this.getPortfolioItems();
+        }else{
+            this.getPortfolioItems(filter);
+        }
     }
 
-    getPortfolioItems() {
+    getPortfolioItems(filter = null) {
         const axios = require('axios');
      
       // Make a request for a user with a given ID
       axios
         .get('https://zackerybayle.devcamp.space/portfolio/portfolio_items')
         .then(response =>  {
-          // handle success
-          
-          this.setState({
-            data: response.data.portfolio_items
+          if(filter) {
+            this.setState({
+                data: response.data.portfolio_items.filter(item => {
+                    return item.category === filter;
+                    
+                })
             });
+          }else {
+            this.setState({
+                data: response.data.portfolio_items
+            });
+          }
         })
         .catch(error => {
-          // handle error
           console.log(error);
         });
       }
 
     portfolioItems() {
         
-        // console.log("i got here", this.state.data)
         return this.state.data.map(item => {
             return <PortfolioItem key={item.id} item={item}  />;
         });
@@ -63,16 +68,18 @@ export default class PortfolioContainer extends Component {
 
 
         return (
-            <div className="portfolio-items-wrapper">
-                <div className="portfolio-btn-wrapper">
+            <div className="home-page-wrapper">
+                <div className="filer-links">
                     <button className="btn" onClick={() => this.handelFilter('eCommerce')}>eCommerce</button>
                     <button className="btn" onClick={() => this.handelFilter('Scheduling')}>Scheduling</button>
                     <button className="btn" onClick={() => this.handelFilter('Enterprise')}>Enterprise</button>
-                    <button className="btn" onClick={() => this.handelFilter('Enterprise')}>Gaming</button>
+                    <button className="btn" onClick={() => this.handelFilter('Gaming')}>Gaming</button>
+                    <button className="btn" onClick={() => this.handelFilter('CLEAR_FILTERS')}>ALL</button>
                 </div>
-    
-                <div className="portfolio-items-grid">
-                    {this.portfolioItems()}
+                <div className="portfolio-items-wrapper">
+                    <div className="portfolio-items-grid">
+                        {this.portfolioItems()}
+                    </div>
                 </div>
             </div>
         );

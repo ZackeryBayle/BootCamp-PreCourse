@@ -9,7 +9,7 @@ export default class Auth extends Component {
         super(props);
 
         this.handleSuccessfullAuth = this.handleSuccessfullAuth.bind(this);
-        this.handleUnsuccessfullAuth = this.handleUnsuccessfullAuth.bind(this);
+        this.handleUnsuccessfullAuth = this.handleUnsuccessfullAuth.bind(this); 
     }
 
     handleSuccessfullAuth() {
